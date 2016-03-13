@@ -1,0 +1,17 @@
+	/*小向左大向右，空插入*/
+	if(n->data < p->data)
+	{
+ 	  if(p->left!=null)
+   	  {
+ 	      p=p->left;
+ 	  } else{
+ 	      p->left=n; 
+	  }
+	}else{
+	   if(p->right!=null)
+ 	  {
+	       p=p->right;
+	   } else{
+      	       p->right=n; 
+ 	   }
+	}
