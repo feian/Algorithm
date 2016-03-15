@@ -1,0 +1,15 @@
+/*
+  递归求二叉树深度
+*/
+int TreeDepth(BinaryTreeNode* r)
+{
+    if(r==NULL)//如果r空深度为0
+        return 0;
+    //否则深度等于1+子树深度
+    int left=1;
+    int right=1;
+    left+=TreeDepth(r->left);
+    right+=TreeDepth(r->right);
+
+    return left>right?left:right; //返回深度较大的那一个
+}
