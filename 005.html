@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+		/*
+			一道360实习生2016笔试题
+			批量替换字符串中固定位置的字符
+
+			两种方法：
+			1.转换成数组，再转换回来
+			2.截取字符串
+		*/
+		var input1 = [10,3]; //第一行输入
+		var input2 = ".b..bz....."; //第二行输入
+		var inputm = [
+			[1,'h'],
+			[3,'c'],
+			[9,'f']
+		];                    //m行输入
+
+		function repaceBatch(str,replacements){
+
+			if(Array.isArray(replacements)&&replacements.length>0){
+				var arr = str.split("");
+				//批量替换
+				replacements.forEach(function(item,index){
+					if(parseInt(item)&&
+						parseInt(item)>-1&&
+						parseInt(item)<str.length){
+
+						arr[item[0]] = item[1];
+
+						console.log("第" + (index+1) + "次替换成功：" + item[0] + "替换" + item[1]);
+					} else {
+						console.log("第" + (index+1) + "次替换失败：" + item[0] + "替换" + item[1]);
+					}
+				});
+
+			} else{
+				throw "请以数组方式输入要替换的内容"
+			}
+			return arr.join("");
+		}
+		/*function repaceBatch(str,replacements){
+
+			if(Array.isArray(replacements)&&replacements.length>0){
+				//var arr = str.split("");
+				//批量替换
+				replacements.forEach(function(item,index){
+					if(parseInt(item)&&
+						parseInt(item)>-1&&
+						parseInt(item)<str.length){
+
+						str = str.slice(0,item[0]) + item[1] + str.slice(item[0]+1);
+						//arr[item[0]] = item[1];
+
+						console.log("第" + (index+1) + "次替换成功：" + item[0] + "替换" + item[1]);
+					} else {
+						console.log("第" + (index+1) + "次替换失败：" + item[0] + "替换" + item[1]);
+					}
+				});
+
+			} else{
+				throw "请以数组方式输入要替换的内容"
+			}
+			return str;
+			//return arr.join("");
+		}*/
+	
+		console.log(repaceBatch(input2,inputm));
+		/* output:
+		第1次替换成功：1替换h
+		第2次替换成功：3替换c
+		第3次替换失败：19替换f
+		*/
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
