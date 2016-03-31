@@ -1,3 +1,6 @@
+      /*
+        后缀数组求最大重复子串
+      */          
                 var str = "banana",
                     suffixArr = [],
                     len = str.length,
