@@ -1,3 +1,6 @@
+/*
+  利用key唯一数组去重
+*/
 function toObject(arr){
 　　var obj = {};
 　　for(var i=0,j=arr.length; i<j; i++){
