@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+		//字符串翻转
+		var str = "abcde";
+		function converse(str){
+			var i,temp,
+				arr = str.split(""),
+				len = str.length;
+
+			for(i=0;i<len/2;i++){
+				temp = arr[i];
+				arr[i] = arr[len-i];
+				arr[len-i] = temp;
+			}
+			return  arr.join("");
+		}
+		
+		console.log(converse(str));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
