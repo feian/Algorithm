@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+		/*
+			求数组排序最少移动次数
+			蘑菇街2016笔试题
+		*/
+			
+		//var T = read_line(),
+		var T = 2,
+			n,
+			k,
+			data = [];
+		
+		/*for(k=0; k<T; k++) {
+			n = read_line();
+			data[k] = read_line();
+		}*/
+		data = [
+			"1 2 3",
+			"4 3 2 1"
+		];
+		for(k=0; k<T; k++) {
+			console.log(getTimes(data[k].split(" ")));
+			//print(getTimes(data[k].split(" ")));
+		}
+		
+		function getTimes(arr) {
+
+			var arr = [1,5,4,3,2,6];
+			var copyArr = arr.slice(0);
+			copyArr.sort(function(a,b){
+				return a-b;
+			});
+			var i,j,
+				differentCount = 0,
+				couppleCount  = 0;
+
+			for(i=0; i<arr.length;i++){
+				if(arr[i] != copyArr[i]){  //此位置出现变动
+					differentCount++;
+					
+					j = arr.indexOf(i+1,copyArr[i]); 
+					if(arr[i] == copyArr[j] &&
+						arr[j] == copyArr[i]){
+						couppleCount++;
+					}
+				}
+			}
+			return differentCount-couppleCount;
+		}
+		
+		Array.prototype.indexOf = function(start,item){
+			for(var i=start; i<this.length; i++){
+				if(this[i]==item){
+					return i;
+				}
+			}
+			return -1;
+		}
+
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
