@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+		/*
+			京东2016实习生编程题
+			8X8方格中两点最短路径: 能斜着走就不直着走
+		*/
+
+		var S = 'a8',
+			T = 'h1';
+		/*var S = read_line(),
+			T = read_line();*/
+
+		var objS = {},
+			objT = {},
+			direct = {
+				L: false,
+				R: false,
+				U: false,
+				D: false,
+				LU: false,
+				LD: false,
+				RU: false,
+				RD: false
+			};
+
+		objS.num = S[1];
+		objS.letter = letterToNum(S[0]);
+
+		objT.num = T[1];
+		objT.letter = letterToNum(T[0]);
+
+
+		while(true){
+
+			if(objS.num > objT.num){
+				objS.num--;
+				direct.U = true;
+			} else if(objS.num < objT.num){
+				objS.num++;
+				direct.D = true;
+			}
+			if(objS.letter > objT.letter){
+				objS.letter--;
+				direct.L= true;
+			} else if(objS.letter < objT.letter){
+				objS.letter++;
+				direct.R = true;
+			}
+
+			if(direct.L&&direct.U){
+				direct.LU = true;
+
+			} 
+			if(direct.L&&direct.D){
+				direct.LD = true;
+				
+			} 
+			if(direct.R&&direct.U){
+				direct.RU = true;
+				
+			} 
+			if(direct.R&&direct.D){
+				direct.RD = true;
+				
+			} 
+
+			if(direct.LU){   //斜着走
+				//print('LU');
+				console.log('LU');
+			}else if(direct.LD){
+				//print('LD');
+				console.log('LD');
+			}else if(direct.RU){
+				//print('RU');
+				console.log('RU');
+			}else if(direct.RD){
+				//print('RD');
+				console.log('RD');
+			} else{
+				if(direct.L){   //直着走
+					//print('L');
+					console.log('L');
+				}else if(direct.R){
+					//print('R');
+					console.log('R');
+				}else if(direct.U){
+					//print('U');
+					console.log('U');
+				}else if(direct.D){
+					//print('D');
+					console.log('D');
+				} 
+			}
+
+			resetDirect();
+
+			if(objS.num == objT.num
+				&& objS.letter == objT.letter){
+				break;
+			}
+		}
+		
+		function letterToNum(letter){
+			var num;
+			switch(letter.toLowerCase()){
+				case 'a' : 
+					num = 1;
+					break;
+				case 'b' : 
+					num = 2;
+					break;
+				case 'c' : 
+					num = 3;
+					break;
+				case 'd' : 
+					num = 4;
+					break;
+				case 'e' : 
+					num = 5;
+					break;
+				case 'f' : 
+					num = 6;
+					break;
+				case 'g' : 
+					num = 7;
+					break;
+				case 'h' : 
+					num = 8;
+					break;
+			}
+			return num;
+		}
+
+		function resetDirect(){
+			Object.keys(direct).forEach(function(item){
+				direct[item] = false;
+			});
+		}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
