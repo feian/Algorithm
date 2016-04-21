@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8"/>
+<head>
+	<style type="text/css">
+	</style>
+	<script>
+		/*
+			一段话反转再转换大小写
+			牛客一站通offer编程题
+		*/
+		var s = 'This is a sample';
+
+		var i=0, result = '', arr;
+		for(i=0;i<s.length;i++){
+			if(/[A-Z]/.test(s[i])){ //是大写
+				result += s[i].toLowerCase();
+			} else if(/[a-z]/.test(s[i])){   //是小写
+				result += s[i].toUpperCase();
+			} else {
+				result += ' ';
+			}
+		}
+		arr = result.split(' ');
+		arr.reverse();
+
+		console.log(arr);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
